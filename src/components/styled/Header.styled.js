@@ -5,8 +5,9 @@ export const StyledHeader = styled.header`
     background-color: ${({ theme }) => theme.header};
     align-items: center;
     justify-content: space-between;
-`;
+    transition: 0.5s ease;
 
+`;
 export const Container = styled.div`
     display: flex;
     align-items: center;
@@ -50,19 +51,20 @@ export const Avatar = styled.img`
     margin: 0 0 0 24px;
 `;
 
-export const DarkTheme = styled.svg`
-    display: ${({ theme }) => theme.display} path {
-        &:hover {
-            fill: #dfe3fa;
-        }
+export const Theme = styled.div`
+    .light {
+        display: ${({theme}) => theme.darkIcon|| "unset"};
+        margin: 0 23px 0 0;
     }
-`;
-
-export const LightTheme = styled.svg`
-    ${({ theme }) => theme.display}
-    path {
-        &:hover {
-            fill: #dfe3fa;
+    .dark {
+        display: ${({theme}) => theme.lightIcon || "unset"};     
+        margin: 0 23px 0 0;
+    }
+    &:hover {
+        svg {
+            path {            
+                fill: #DFE3FA;
+            }
         }
     }
 `;

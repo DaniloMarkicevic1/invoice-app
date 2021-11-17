@@ -6,4 +6,5 @@ export const Container = styled.div`
     padding: 0 20px;
     margin: 0 auto;
     text-align: center;
+    background-color: ${({theme}) => theme.backgroundColor};
 `;
