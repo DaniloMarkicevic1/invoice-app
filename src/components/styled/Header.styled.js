@@ -6,7 +6,6 @@ export const StyledHeader = styled.header`
     align-items: center;
     justify-content: space-between;
     transition: 0.5s ease;
-
 `;
 export const Container = styled.div`
     display: flex;
@@ -23,7 +22,7 @@ export const Logo = styled.img``;
 
 export const LogoBg = styled.div`
     position: relative;
-    background-color: #7c5dfa;
+    background-color: ${({ theme }) => theme.LogoBg || theme.LogoBg};
     max-height: 72px;
     z-index: 1;
     padding: 23px 22px;
@@ -31,13 +30,13 @@ export const LogoBg = styled.div`
     border-bottom-right-radius: 20px;
     ::before {
         content: '';
+        background: ${({ theme }) => theme.LogoBotBg};
         position: absolute;
         z-index: -1;
         top: 50%;
         bottom: 0;
         left: 0;
         right: 0;
-        background: #9277ff;
         border-top-left-radius: 20px;
         border-bottom-right-radius: 20px;
     }
@@ -53,17 +52,20 @@ export const Avatar = styled.img`
 
 export const Theme = styled.div`
     .light {
-        display: ${({theme}) => theme.darkIcon|| "unset"};
+        display: ${({ theme }) => theme.darkIcon || 'unset'};
         margin: 0 23px 0 0;
+        @media (min-width: 768px) {
+            margin: 0 32px 0 0;
+        }
     }
     .dark {
-        display: ${({theme}) => theme.lightIcon || "unset"};     
-        margin: 0 23px 0 0;
+        display: ${({ theme }) => theme.lightIcon || 'unset'};
+        margin: 0 24px 0 0;
     }
     &:hover {
         svg {
-            path {            
-                fill: #DFE3FA;
+            path {
+                fill: ${({ theme }) => theme.grayishWhite};
             }
         }
     }

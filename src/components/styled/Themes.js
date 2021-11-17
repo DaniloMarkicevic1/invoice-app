@@ -2,16 +2,16 @@ import { createGlobalStyle } from 'styled-components';
 import { Cursor } from '../../Images';
 
 export const DarkTheme = {
-    backgroundColor:'#141625',
-    lightIcon: "none",
-    themeHover: "#DFE3FA",
-    header: '#1E2139',  
+    backgroundColor: '#141625',
+    lightIcon: 'none',
+    themeHover: '#DFE3FA',
+    header: '#1E2139',
     logoBG: '#7C5DFA',
 };
 
 export const LightTheme = {
-    backgroundColor:'#F8F8FB',
-    darkIcon: "none",
+    backgroundColor: '#F8F8FB',
+    darkIcon: 'none',
     header: '#373B53',
     p: '#000',
     logoBG: '#7C5DFA',

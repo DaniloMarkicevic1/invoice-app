@@ -18,9 +18,13 @@ function Header({ themeToggler }) {
             </LogoBg>
 
             <Container>
-                <Theme onClick={themeToggler} className="hover"> <LightThemeImg className="light"/></Theme>
-                <Theme onClick={themeToggler}  className="hover"> <DarkThemeImg className="dark"/></Theme>
+                <Theme onClick={themeToggler} className="hover">
+                    <LightThemeImg className="light" />
+                    <DarkThemeImg className="dark" />
+                </Theme>
+
                 <VerticalLine />
+
                 <Avatar src={AvatarImg} />
             </Container>
         </StyledHeader>
