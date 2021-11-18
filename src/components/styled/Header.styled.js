@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
     display: flex;
-    background-color: ${({ theme }) => theme.colors.header};
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
     align-items: center;
     justify-content: space-between;
     transition: 0.5s ease;

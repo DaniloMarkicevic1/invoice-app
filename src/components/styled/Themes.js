@@ -4,12 +4,11 @@ import { Cursor } from '../../Images';
 export const DarkTheme = {
     colors: {
         backgroundColor: '#141625',
-        backgroundPrimary: '',
+        backgroundPrimary: '#1E2139',
         backgroundSecondary: '#252945',
         btnPrimary: '#7C5DFA',
         btnPrimaryHover: '#9277FF',
         themeHover: '#DFE3FA',
-        header: '#1E2139',
         grayishWhite: '#DFE3FA',
         white: '#ffffff',
     },
@@ -39,7 +38,7 @@ export const DarkTheme = {
     radius: {
         btnRadius: '24px',
         circleRadius: '100%',
-        filterListRadius: '8px',
+        smallRadius: '8px',
     },
     lightIcon: 'none',
 };
@@ -57,7 +56,6 @@ export const GlobalStyle = createGlobalStyle`
         margin:0px;
         padding: 0px;
         box-sizing: border-box;
-
         font-family:"Spartan", sans-serif;
         body {
             #root {

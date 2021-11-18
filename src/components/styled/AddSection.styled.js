@@ -42,7 +42,6 @@ export const Filter = styled.div`
     svg {
         transform: ${({ toggle }) =>
             toggle === 'show' ? 'rotate(180deg)' : 0};
-        /* rotate(180deg); */
     }
 
     svg {
@@ -66,7 +65,7 @@ export const FilterOptions = styled.ul`
     background-color: ${({ theme }) => theme.colors.backgroundSecondary};
     box-shadow: ${({ theme }) => theme.boxShadow.darkOne};
     padding: 24px 0 24px 24px;
-    border-radius: ${({ theme }) => theme.radius.filterListRadius};
+    border-radius: ${({ theme }) => theme.radius.smallRadius};
     left: -120%;
     top: calc(100% + 23px);
     box-shadow: ${({ theme }) => theme.boxShadow.darkOne};
