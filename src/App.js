@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 import Header from './components/header/Header';
-import Card from './components/cardItems/Card';
+import CardList from './components/cardItems/CardList';
 import AddSection from './components/cardItems/AddSection';
 
 import CardContextProvider from './contexts/CardContext';
@@ -9,7 +9,7 @@ import CardContextProvider from './contexts/CardContext';
 import { Container } from './components/styled/Container.styled';
 
 import { ThemeProvider } from 'styled-components';
-import { DarkTheme, LightTheme, GlobalStyle } from './components/styled/Themes';
+import { DarkTheme, GlobalStyle } from './components/styled/Themes';
 
 function App() {
     const [theme, setTheme] = useState('light');
@@ -17,15 +17,17 @@ function App() {
     const themeTogglerHandler = () => {
         theme === 'light' ? setTheme('dark') : setTheme('light');
     };
+
     return (
         <>
-            <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}>
+            {/* <ThemeProvider theme={theme === 'light' ? LightTheme : DarkTheme}> */}
+            <ThemeProvider theme={DarkTheme}>
                 <GlobalStyle />
                 <Header themeToggler={themeTogglerHandler} />
                 <Container>
-                    {/* <AddSection /> */}
+                    <AddSection />
                     <CardContextProvider>
-                        <Card />
+                        <CardList />
                     </CardContextProvider>
                 </Container>
             </ThemeProvider>

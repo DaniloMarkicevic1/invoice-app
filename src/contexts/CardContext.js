@@ -1,15 +1,12 @@
 import { useState } from 'react';
 import Context from './Context';
+import CardData from '../data/data.json';
 
 const CardContextProvider = (props) => {
-    const [cards, setCards] = useState([
-        { card: 'Card1', id: 1 },
-        { card: 'Card2', id: 2 },
-        { card: 'Card3', id: 3 },
-    ]);
+    const [data, setData] = useState([CardData]);
 
     return (
-        <Context.Provider value={{ cards }}>{props.children}</Context.Provider>
+        <Context.Provider value={{ data }}>{props.children}</Context.Provider>
     );
 };
 

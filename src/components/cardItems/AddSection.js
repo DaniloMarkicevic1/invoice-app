@@ -1,41 +1,61 @@
-// import {
-//     Invoices,
-//     InvoiceTitle,
-//     NumOfInvoices,
-//     Wrapper,
-//     Filter,
-//     FilterText,
-//     FilterOptions,
-//     Option,
-//     BtnWrap,
-// } from '../styled/AddSection.styled';
+import {
+    Wrapper,
+    Invoices,
+    InvoiceTitle,
+    NumOfInvoices,
+    Filter,
+    FilterText,
+    FilterOptions,
+    Option,
+    BtnWrap,
+    IconWrap,
+} from '../styled/AddSection.styled';
+import { ArrowDown, PlusIcon } from '../../Images';
 
-// import { ArrowDown, PlusIcon } from '../../Images';
+import Button from '../buttons/Button';
+import { useState } from 'react';
 
-// import Button from '../buttons/Button';
+function AddSection() {
+    const [toggleFilter, setToggleFilter] = useState('hide');
 
-// function AddSection(props) {
-//     return (
-//         <Wrapper>
-//             <Invoices>
-//                 <InvoiceTitle>Invoices</InvoiceTitle>
-//                 <NumOfInvoices>7 invoices</NumOfInvoices>
-//             </Invoices>
-//             <Filter>
-//                 <FilterText>Filter </FilterText>
-//                 <ArrowDown />
-//                 <FilterOptions>
-//                     <Option>Option1</Option>
-//                     <Option>Option2</Option>
-//                     <Option>Option3</Option>
-//                 </FilterOptions>
-//             </Filter>
-//             <BtnWrap>
-//                 <PlusIcon />
-//                 <Button text="New"></Button>
-//             </BtnWrap>
-//         </Wrapper>
-//     );
-// }
+    function toggleFilterHandler() {
+        toggleFilter === 'hide'
+            ? setToggleFilter('show')
+            : setToggleFilter('hide');
+    }
 
-// export default AddSection;
+    return (
+        <Wrapper>
+            <Invoices>
+                <InvoiceTitle>Invoices</InvoiceTitle>
+                <NumOfInvoices>7 Invoices</NumOfInvoices>
+            </Invoices>
+            <Filter className="hover filter" toggle={toggleFilter}>
+                <FilterText onClick={toggleFilterHandler}>Filter</FilterText>
+                <ArrowDown onClick={toggleFilterHandler} />
+                <FilterOptions>
+                    <Option>
+                        <input type="checkbox" id="draft" name="draft" />
+                        <label htmlFor="draft">Draft</label>
+                    </Option>
+                    <Option>
+                        <input type="checkbox" id="pending" name="pending" />
+                        <label htmlFor="pending">Pending</label>
+                    </Option>
+                    <Option>
+                        <input type="checkbox" id="paid" name="paid" />
+                        <label htmlFor="paid">Paid</label>
+                    </Option>
+                </FilterOptions>
+            </Filter>
+            <BtnWrap className="hover">
+                <IconWrap>
+                    <PlusIcon />
+                </IconWrap>
+                <Button text="New" bg="btnPrimary" textCollor="white"></Button>
+            </BtnWrap>
+        </Wrapper>
+    );
+}
+
+export default AddSection;

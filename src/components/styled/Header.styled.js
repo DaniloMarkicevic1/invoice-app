@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledHeader = styled.header`
     display: flex;
-    background-color: ${({ theme }) => theme.header};
+    background-color: ${({ theme }) => theme.colors.header};
     align-items: center;
     justify-content: space-between;
     transition: 0.5s ease;
@@ -22,23 +22,21 @@ export const Logo = styled.img``;
 
 export const LogoBg = styled.div`
     position: relative;
-    background-color: ${({ theme }) => theme.LogoBg || theme.LogoBg};
+    background-color: ${({ theme }) => theme.colors.btnPrimary};
     max-height: 72px;
     z-index: 1;
     padding: 23px 22px;
-    border-top-right-radius: 20px;
-    border-bottom-right-radius: 20px;
+    border-radius: 0px 17px 17px 0px;
     ::before {
         content: '';
-        background: ${({ theme }) => theme.LogoBotBg};
+        background: ${({ theme }) => theme.colors.btnPrimaryHover};
         position: absolute;
         z-index: -1;
         top: 50%;
         bottom: 0;
         left: 0;
         right: 0;
-        border-top-left-radius: 20px;
-        border-bottom-right-radius: 20px;
+        border-radius: 17px 0px 17px 0px;
     }
 `;
 
@@ -65,7 +63,7 @@ export const Theme = styled.div`
     &:hover {
         svg {
             path {
-                fill: ${({ theme }) => theme.grayishWhite};
+                fill: ${({ theme }) => theme.colors.grayishWhite};
             }
         }
     }

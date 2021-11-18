@@ -1,5 +1,11 @@
-// function Button(props) {
-//     return <button onClick={props}>{props.text}</button>;
-// }
+import { PrimaryButton } from '../styled/PrimaryButton.styled';
 
-// export default Button;
+function Button({ bg, text, textCollor }) {
+    return (
+        <PrimaryButton bg={bg} textCollor={textCollor} className="hover">
+            {text}
+        </PrimaryButton>
+    );
+}
+
+export default Button;
