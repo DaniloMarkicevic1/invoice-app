@@ -8,9 +8,12 @@ export const DarkTheme = {
         backgroundSecondary: '#252945',
         btnPrimary: '#7C5DFA',
         btnPrimaryHover: '#9277FF',
-        themeHover: '#DFE3FA',
         grayishWhite: '#DFE3FA',
         white: '#ffffff',
+        hashtag: '#7E88C3',
+        statusBg: 'rgba(151,151,151, 0.05)',
+        statusPending: '#FF8F00',
+        statusPaid: '#33D69F',
     },
     font: {
         size: {
@@ -34,11 +37,14 @@ export const DarkTheme = {
     },
     boxShadow: {
         darkOne: ' 0px 10px 20px rgba(0, 0, 0, 0.25)',
+        darkTwo: '0px 10px 10px -10px rgba(72, 84, 159, 0.100397)',
     },
     radius: {
         btnRadius: '24px',
         circleRadius: '100%',
         smallRadius: '8px',
+        checkbox: '2px',
+        status: '6px',
     },
     lightIcon: 'none',
 };
@@ -52,6 +58,7 @@ export const LightTheme = {
 };
 
 export const GlobalStyle = createGlobalStyle`
+    
     * {
         margin:0px;
         padding: 0px;

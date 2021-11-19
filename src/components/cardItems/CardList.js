@@ -8,9 +8,8 @@ function CardList() {
     return (
         <CardListStyle>
             {data[0].map(({ id, clientName, paymentDue, status, total }, i) => (
-                <CardWrapper>
+                <CardWrapper key={i}>
                     <Card
-                        key={i}
                         id={id}
                         clientName={clientName}
                         paymentDue={paymentDue}

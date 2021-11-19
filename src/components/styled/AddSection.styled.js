@@ -59,23 +59,42 @@ export const FilterText = styled.div`
 
 export const FilterOptions = styled.ul`
     position: absolute;
-    opacity: 0;
-    width: 192px;
-    height: 128px;
-    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
-    box-shadow: ${({ theme }) => theme.boxShadow.darkOne};
-    padding: 24px 0 24px 24px;
-    border-radius: ${({ theme }) => theme.radius.smallRadius};
     left: -120%;
     top: calc(100% + 23px);
-    box-shadow: ${({ theme }) => theme.boxShadow.darkOne};
+    opacity: 0;
     transition: opacity 200ms ease-in-out;
     pointer-events: none;
+    width: 192px;
+    height: 128px;
+    border-radius: ${({ theme }) => theme.radius.smallRadius};
+    background-color: ${({ theme }) => theme.colors.backgroundSecondary};
+    box-shadow: ${({ theme }) => theme.boxShadow.darkOne};
+    box-shadow: ${({ theme }) => theme.boxShadow.darkOne};
+    padding: 24px 0 24px 24px;
+    text-align: left;
+    display: grid;
+    row-gap: 16px;
 `;
 
 export const Option = styled.li`
+    font-size: ${({ theme }) => theme.font.size.s};
+    font-weight: ${({ theme }) => theme.font.weight.bold};
+    line-height: ${({ theme }) => theme.lineHeight.xs};
     list-style-type: none;
 `;
+export const Label = styled.label`
+    display: flex;
+    align-items: center;
+    text-transform: capitalize;
+    div {
+        vertical-align: middle;
+    }
+`;
+export const Span = styled.span`
+    margin-left: 8px;
+    margin-top: 3px;
+`;
+
 export const BtnWrap = styled.div`
     position: relative;
     display: flex;
