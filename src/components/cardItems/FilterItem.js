@@ -2,11 +2,18 @@ import { useState } from 'react';
 import Checkbox from '../buttons/Checkbox';
 import { Option, Span, Label } from '../styled/AddSection.styled';
 
-function FilterItem({ type, name }) {
+import { useContext } from 'react';
+import Context from '../../contexts/context';
+
+function FilterItem({ name }) {
     const [checked, setChecked] = useState(false);
+    
+    
+    const { filterFunc } = useContext(Context);
 
     function handleCheckboxChange(event) {
         setChecked(event.target.checked);
+        filterFunc(checked, name)
     }
 
     return (

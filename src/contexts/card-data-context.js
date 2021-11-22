@@ -6,11 +6,33 @@ const CardContextProvider = (props) => {
     const dataFile = [CardData];
 
     const [show, setShow] = useState('cardList');
-    const [data, setData] = useState([...dataFile]);
+    const [data, setData] = useState([...dataFile][0]);
     const [oneCard, setOneCard] = useState();
+    const [filteredData, setFilteredData] = useState([])
 
+ 
+   const filterHelper = [];
+    function filterFunc(checked, name) {
+        if(!checked) {
+            Object.values(data).forEach(item => {
+                if(item.status === name) {
+                    filterHelper.push(item)
+                }
+            }); 
+            setFilteredData([...filterHelper,...filteredData])
+        }
+          
+        else if(checked) {
+            let helper = filteredData.filter(item => item.status !== name)
+
+            setFilteredData([...filterHelper,...helper])
+
+        }
+
+    }
+ 
     function oneCardDataHandler(string) {
-        setOneCard(data[0].filter((item) => item.id === string));
+        setOneCard(data.filter((item) => item.id === string));
         setShow('cardInfo');
     }
 
@@ -42,12 +64,14 @@ const CardContextProvider = (props) => {
         <Context.Provider
             value={{
                 formatedDate,
+                filteredData,
                 data,
                 oneCard,
                 oneCardDataHandler,
                 show,
                 setShow,
                 setData,
+                filterFunc
             }}
         >
             {props.children}

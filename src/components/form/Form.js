@@ -1,5 +1,12 @@
+import GoBack from "../buttons/GoBack";
+
 function Form(props) {
-    return (  );
+    return ( 
+        <>
+        <GoBack />
+        
+        </>
+     );
 }
 
 export default Form;

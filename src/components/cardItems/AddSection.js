@@ -20,7 +20,7 @@ import Context from '../../contexts/context';
 function AddSection() {
     const [toggleFilter, setToggleFilter] = useState('hide');
     const { data } = useContext(Context);
-    const length = data[0].length;
+
     function toggleFilterHandler() {
         toggleFilter === 'hide'
             ? setToggleFilter('show')
@@ -31,7 +31,7 @@ function AddSection() {
         <Wrapper>
             <Invoices>
                 <InvoiceTitle>Invoices</InvoiceTitle>
-                <NumOfInvoices>{length} Invoices</NumOfInvoices>
+                <NumOfInvoices>{data.length} Invoices</NumOfInvoices>
             </Invoices>
             <Filter
                 onClick={toggleFilterHandler}
