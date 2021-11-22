@@ -111,7 +111,7 @@ export const BtnWrap = styled.div`
     }
 `;
 
-export const IconWrap = styled.div`
+export const PlusIconWrap = styled.div`
     position: absolute;
     display: flex;
     margin: 6px;

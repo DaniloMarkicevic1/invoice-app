@@ -1,11 +1,14 @@
-import {
-    CardItem,
-    Hashtag,
-    LittleCircle,
-} from '../styled/CardListStyle.styled';
+import { useContext } from 'react';
+import Context from '../../contexts/context';
 
-function Card({ id, clientName, paymentDue, status, total }) {
+import { CardItem, Hashtag } from '../styled/CardListStyle.styled';
+
+import CardStatus from './CardStatus';
+function Card({ id, clientName, status, total, paymentDue }) {
     const totalAmmount = total.toFixed(2).toLocaleString();
+
+    const { formatedDate } = useContext(Context);
+
     return (
         <>
             <CardItem className="itemId" itemTag="itemId">
@@ -18,17 +21,10 @@ function Card({ id, clientName, paymentDue, status, total }) {
             </CardItem>
 
             <CardItem className="dueDate" itemTag="dueDate" color="true">
-                Due {paymentDue}
+                Due {formatedDate(paymentDue)}
             </CardItem>
 
-            <CardItem
-                status={status}
-                className="status"
-                itemTag="status"
-                capitalize="true"
-            >
-                <LittleCircle className="littleCircle" /> {status}
-            </CardItem>
+            <CardStatus status={status} itemTag="status" />
 
             <CardItem className="amount" itemTag="amount">
                 £ {totalAmmount}

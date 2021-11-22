@@ -1,14 +1,21 @@
 import { useContext } from 'react';
-import Context from '../../contexts/Context';
+import Context from '../../contexts/context';
+
 import Card from './Card';
+
 import { CardListStyle, CardWrapper } from '../styled/CardListStyle.styled';
+
 function CardList() {
-    const { data } = useContext(Context);
+    const { data, oneCardDataHandler } = useContext(Context);
 
     return (
         <CardListStyle>
             {data[0].map(({ id, clientName, paymentDue, status, total }, i) => (
-                <CardWrapper key={i}>
+                <CardWrapper
+                    className="hover"
+                    key={i}
+                    onClick={() => oneCardDataHandler(id)}
+                >
                     <Card
                         id={id}
                         clientName={clientName}

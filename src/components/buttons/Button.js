@@ -1,8 +1,8 @@
 import { PrimaryButton } from '../styled/PrimaryButton.styled';
 
-function Button({ bg, text, textCollor }) {
+function Button({ text, btn }) {
     return (
-        <PrimaryButton bg={bg} textCollor={textCollor} className="hover">
+        <PrimaryButton btn={btn} className="hover">
             {text}
         </PrimaryButton>
     );

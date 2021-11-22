@@ -1,3 +1,5 @@
+import { useContext, useState } from 'react';
+
 import {
     Wrapper,
     Invoices,
@@ -6,17 +8,19 @@ import {
     Filter,
     FilterText,
     BtnWrap,
-    IconWrap,
+    PlusIconWrap,
 } from '../styled/AddSection.styled';
+
 import { ArrowDown, PlusIcon } from '../../Images';
 
 import Button from '../buttons/Button';
-import { useState } from 'react';
 import FilterList from './FilterList';
+import Context from '../../contexts/context';
 
 function AddSection() {
     const [toggleFilter, setToggleFilter] = useState('hide');
-
+    const { data } = useContext(Context);
+    const length = data[0].length;
     function toggleFilterHandler() {
         toggleFilter === 'hide'
             ? setToggleFilter('show')
@@ -27,20 +31,22 @@ function AddSection() {
         <Wrapper>
             <Invoices>
                 <InvoiceTitle>Invoices</InvoiceTitle>
-                <NumOfInvoices>7 Invoices</NumOfInvoices>
+                <NumOfInvoices>{length} Invoices</NumOfInvoices>
             </Invoices>
-            <Filter className="filter" toggle={toggleFilter}>
-                <FilterText onClick={toggleFilterHandler} className="hover">
-                    Filter
-                </FilterText>
-                <ArrowDown onClick={toggleFilterHandler} className="hover" />
+            <Filter
+                onClick={toggleFilterHandler}
+                className="filter"
+                toggle={toggleFilter}
+            >
+                <FilterText className="hover">Filter</FilterText>
+                <ArrowDown className="hover" />
                 <FilterList />
             </Filter>
             <BtnWrap className="hover">
-                <IconWrap>
+                <PlusIconWrap>
                     <PlusIcon />
-                </IconWrap>
-                <Button text="New" bg="btnPrimary" textCollor="white"></Button>
+                </PlusIconWrap>
+                <Button text="New" btn="new"></Button>
             </BtnWrap>
         </Wrapper>
     );

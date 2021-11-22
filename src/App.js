@@ -1,10 +1,9 @@
 import { useState } from 'react';
 
 import Header from './components/header/Header';
-import CardList from './components/cardItems/CardList';
-import AddSection from './components/cardItems/AddSection';
+import CardSection from './components/cardItems/CardSection';
 
-import CardContextProvider from './contexts/CardContext';
+import CardContextProvider from './contexts/card-data-context';
 
 import { Container } from './components/styled/Container.styled';
 
@@ -25,9 +24,8 @@ function App() {
                 <GlobalStyle />
                 <Header themeToggler={themeTogglerHandler} />
                 <Container>
-                    <AddSection />
                     <CardContextProvider>
-                        <CardList />
+                        <CardSection />
                     </CardContextProvider>
                 </Container>
             </ThemeProvider>

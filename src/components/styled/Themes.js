@@ -8,23 +8,28 @@ export const DarkTheme = {
         backgroundSecondary: '#252945',
         btnPrimary: '#7C5DFA',
         btnPrimaryHover: '#9277FF',
+        btnDelete: '#EC5757',
+
         grayishWhite: '#DFE3FA',
         white: '#ffffff',
-        hashtag: '#7E88C3',
+        hashtag: '#888EB0',
+        hashtagSecondary: '#7e88c3',
         statusBg: 'rgba(151,151,151, 0.05)',
         statusPending: '#FF8F00',
         statusPaid: '#33D69F',
+        black: '#0C0E16',
     },
     font: {
         size: {
             xl: '32px',
             l: '20px',
             m: '16px',
+            mobileM: '15px',
             s: '12px',
             xs: '11px',
         },
         weight: {
-            medium: '500',
+            medium: '400',
             bold: 'bold',
         },
     },
@@ -32,6 +37,7 @@ export const DarkTheme = {
         xl: '36px',
         l: '24px',
         m: '22px',
+        mobileM: '20px',
         s: '18px',
         xs: '15px',
     },
@@ -45,6 +51,10 @@ export const DarkTheme = {
         smallRadius: '8px',
         checkbox: '2px',
         status: '6px',
+    },
+    border: {
+        blue: `1px solid #7c5dfa`,
+        // error
     },
     lightIcon: 'none',
 };
@@ -66,7 +76,6 @@ export const GlobalStyle = createGlobalStyle`
         font-family:"Spartan", sans-serif;
         body {
             #root {
-                
                 .hover{
                     &:hover {
                         cursor: url(${Cursor}), auto;
