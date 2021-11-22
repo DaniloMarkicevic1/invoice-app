@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 
 const CheckboxContainer = styled.div`
@@ -44,7 +43,10 @@ const StyledCheckbox = styled.div`
     }
 `;
 
-function Checkbox({ className, checked, ...props }) {
+function Checkbox({ name,checked ,className, ...props }) {
+
+
+ 
     return (
         <CheckboxContainer className={className}>
             <HiddenCheckbox checked={checked} {...props} />

@@ -16,11 +16,19 @@ import { ArrowDown, PlusIcon } from '../../Images';
 import Button from '../buttons/Button';
 import FilterList from './FilterList';
 import Context from '../../contexts/context';
-
 function AddSection() {
     const [toggleFilter, setToggleFilter] = useState('hide');
-    const { data } = useContext(Context);
+    const { filteredData,data } = useContext(Context);
 
+    let helper;
+
+    if(filteredData.length === 0){
+        helper = data
+    }
+    else {
+        helper = filteredData;
+    }
+    
     function toggleFilterHandler() {
         toggleFilter === 'hide'
             ? setToggleFilter('show')
@@ -31,7 +39,7 @@ function AddSection() {
         <Wrapper>
             <Invoices>
                 <InvoiceTitle>Invoices</InvoiceTitle>
-                <NumOfInvoices>{data.length} Invoices</NumOfInvoices>
+                <NumOfInvoices>{helper.length} Invoices</NumOfInvoices>
             </Invoices>
             <Filter
                 onClick={toggleFilterHandler}

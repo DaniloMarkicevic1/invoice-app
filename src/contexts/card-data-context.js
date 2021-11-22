@@ -9,26 +9,29 @@ const CardContextProvider = (props) => {
     const [data, setData] = useState([...dataFile][0]);
     const [oneCard, setOneCard] = useState();
     const [filteredData, setFilteredData] = useState([])
+    
+    const [draft, setDraft] = useState(false)
+    const [pending, setPending] = useState(false)
+    const [paid, setPaid] = useState(false)
 
- 
-   const filterHelper = [];
+    const filterHelper = [];
     function filterFunc(checked, name) {
-        if(!checked) {
+      
+         if(!checked) {
             Object.values(data).forEach(item => {
                 if(item.status === name) {
                     filterHelper.push(item)
                 }
             }); 
             setFilteredData([...filterHelper,...filteredData])
+            
         }
-          
-        else if(checked) {
+        
+         if(checked) {
             let helper = filteredData.filter(item => item.status !== name)
-
             setFilteredData([...filterHelper,...helper])
 
         }
-
     }
  
     function oneCardDataHandler(string) {
@@ -71,7 +74,9 @@ const CardContextProvider = (props) => {
                 show,
                 setShow,
                 setData,
-                filterFunc
+                filterFunc,
+                setFilteredData,
+                paid,draft,pending,setPaid,setDraft,setPending
             }}
         >
             {props.children}

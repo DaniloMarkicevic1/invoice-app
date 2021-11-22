@@ -6,11 +6,21 @@ import Card from './Card';
 import { CardListStyle, CardWrapper } from '../styled/CardListStyle.styled';
 
 function CardList() {
-    const { filteredData, oneCardDataHandler } = useContext(Context);
+    const { filteredData, data, oneCardDataHandler } = useContext(Context);
+   
+    let helper;
+
+    if(filteredData.length === 0) {
+        helper = data;
+    }
+
+    else {
+        helper = filteredData;
+    }
 
     return (
         <CardListStyle>
-            {filteredData.map(({ id, clientName, paymentDue, status, total }, i) => (
+            {helper.map(({ id, clientName, paymentDue, status, total }, i) => (
                 <CardWrapper
                     className="hover"
                     key={i}
