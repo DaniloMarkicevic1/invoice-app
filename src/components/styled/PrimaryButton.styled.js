@@ -25,7 +25,6 @@ export const PrimaryButton = styled.button`
     outline: none;
     text-align: center;
     grid-area: ${({ btn }) =>
-        (btn === 'two' && 'first') ||
-        (btn === 'three' && 'second') ||
-        (btn === 'one' && 'third')};
+        // (btn === 'two' && 'first') ||
+        (btn === 'three' && 'second') || (btn === 'one' && 'third')};
 `;

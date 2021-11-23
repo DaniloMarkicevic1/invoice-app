@@ -56,12 +56,18 @@ export const ItemWrap = styled.div`
         (gridArea === 'dates' && '0 0 32px 0') ||
         (gridArea === 'e-mail' && '0 0 40px 0') ||
         (btns === 'buttonArea' && '21px 24px 22px')};
-
     background-color: ${({ theme, btns }) =>
         btns && theme.colors.backgroundPrimary};
     display: ${({ btns }) => btns && 'grid'};
     grid-template-areas: 'first first second second third third third';
     column-gap: 8px;
+    a {
+        grid-area: first;
+        width: 100%;
+        button {
+            width: 100%;
+        }
+    }
 `;
 
 export const Item = styled.p`
