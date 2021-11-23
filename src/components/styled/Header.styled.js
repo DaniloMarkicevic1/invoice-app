@@ -7,6 +7,7 @@ export const StyledHeader = styled.header`
     justify-content: space-between;
     transition: 0.5s ease;
 `;
+
 export const Container = styled.div`
     display: flex;
     align-items: center;

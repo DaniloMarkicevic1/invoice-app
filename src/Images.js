@@ -10,16 +10,16 @@ import { ReactComponent as ArrowDown } from './assets/icon-arrow-down.svg';
 import { ReactComponent as ArrowLeft } from './assets/icon-arrow-left.svg';
 
 export {
-    //Header
+    //Used in Header
     LogoImg,
     LightThemeImg,
     DarkThemeImg,
     AvatarImg,
     Cursor,
-    // CardList
+    //Used in CardList
     EmptyInvoices,
     PlusIcon,
     ArrowDown,
-    // CardInfo
+    //Used in  CardInfo
     ArrowLeft,
 };

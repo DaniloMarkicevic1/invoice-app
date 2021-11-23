@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const Wrapper = styled.section`
     display: flex;
-    padding: 32px 24px;
     align-items: center;
     justify-content: center;
     color: ${({ theme }) => theme.colors.white};
@@ -12,7 +11,7 @@ export const Invoices = styled.div`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 0 81px 0 0;
+    margin: 0 auto 0 0;
 `;
 
 export const InvoiceTitle = styled.p`

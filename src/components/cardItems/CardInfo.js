@@ -1,3 +1,12 @@
+import { Link } from 'react-router-dom';
+
+import { useContext } from 'react';
+import Context from '../../contexts/context';
+
+import CardStatus from './CardStatus';
+import Button from '../buttons/Button';
+import GoBack from '../buttons/GoBack';
+
 import {
     CardStatusWrap,
     Wrapper,
@@ -7,12 +16,6 @@ import {
     Item,
     Hashtag,
 } from '../styled/CardInfo.styled';
-
-import CardStatus from './CardStatus';
-import { useContext } from 'react';
-import Context from '../../contexts/context';
-import Button from '../buttons/Button';
-import GoBack from '../buttons/GoBack';
 
 function CardInfo() {
     const { oneCard, formatedDate } = useContext(Context);
@@ -64,11 +67,13 @@ function CardInfo() {
                     <Item gridArea="jobDescription" bold={true}>
                         {item.name}
                     </Item>
+
                     <Item gridArea="quantity" bold={true}>
                         <Hashtag>
                             {item.quantity} x £ {item.price}
                         </Hashtag>
                     </Item>
+
                     <Item gridArea="jobPrice" bold={true}>
                         £ {item.total}
                     </Item>
@@ -163,8 +168,11 @@ function CardInfo() {
                     </BillWrap>
                 </DataWrap>
             </Wrapper>
+            {/* Buttons */}
             <ItemWrap btns="buttonArea">
-                <Button text="Edit" btn="two"></Button>
+                <Link to="/edit">
+                    <Button text="Edit" btn="two"></Button>
+                </Link>
                 <Button text="Delete" btn="three"></Button>
                 <Button text="Mark as Paid" btn="one"></Button>
             </ItemWrap>

@@ -1,29 +1,24 @@
-import { useContext } from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import NoInvoices from './NoInvoices';
 import CardInfo from './CardInfo';
 import CardList from './CardList';
-import Context from '../../contexts/context';
 import AddSection from './AddSection';
+import Form from '../form/Form';
 
 function CardSection() {
-    const { show } = useContext(Context);
+    return (
+        <>
+            <Routes>
+                <Route path="/" element={<CardList />} />
+                <Route path="/" element={<AddSection />} />
 
-    if (show === 'cardInfo') {
-        return <CardInfo />;
-    }
-    if (show === 'noInvoices') {
-        return <NoInvoices />;
-    }
-    if (show === 'cardList') {
-        return (
-            <>
-                <AddSection />
-                <CardList />
-            </>
-        );
-    }
-    
+                <Route path="/cardInfo" element={<CardInfo />} />
+
+                <Route path="/add-new" element={<Form type="add-new" />} />
+                <Route path="/edit" element={<Form type="edit" />} />
+            </Routes>
+        </>
+    );
 }
 
 export default CardSection;

@@ -13,9 +13,7 @@ export const PrimaryButton = styled.button`
         (btn === 'new' && '15px 14px 14px 46px') ||
         // PinkButton
         (btn === 'one' && '17px 0px 16px 0px') ||
-        (btn === 'one' && '17px 0px 16px 0px') ||
         //Dark Button
-        // (btn === 'two' && '17px 23px 16px 24px') ||
         (btn === 'two' && '17px 0px 16px 0px') ||
         // Orange Button
         (btn === 'three' && '17px 0px 16px') ||

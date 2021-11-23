@@ -1,3 +1,5 @@
+import { LogoImg, AvatarImg, LightThemeImg, DarkThemeImg } from '../../Images';
+
 import {
     StyledHeader,
     Container,
@@ -7,8 +9,6 @@ import {
     VerticalLine,
     LogoBg,
 } from '../styled/Header.styled';
-
-import { LogoImg, AvatarImg, LightThemeImg, DarkThemeImg } from '../../Images';
 
 function Header({ themeToggler }) {
     return (

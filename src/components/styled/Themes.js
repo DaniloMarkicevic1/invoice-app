@@ -9,7 +9,6 @@ export const DarkTheme = {
         btnPrimary: '#7C5DFA',
         btnPrimaryHover: '#9277FF',
         btnDelete: '#EC5757',
-
         grayishWhite: '#DFE3FA',
         white: '#ffffff',
         hashtag: '#888EB0',
@@ -18,11 +17,14 @@ export const DarkTheme = {
         statusPending: '#FF8F00',
         statusPaid: '#33D69F',
         black: '#0C0E16',
+        itemTitle: '#777f98',
     },
     font: {
         size: {
             xl: '32px',
+            mobileXl: '24px',
             l: '20px',
+            mobileL: '18px',
             m: '16px',
             mobileM: '15px',
             s: '12px',
@@ -49,6 +51,7 @@ export const DarkTheme = {
         btnRadius: '24px',
         circleRadius: '100%',
         smallRadius: '8px',
+        inputRadius: '4px',
         checkbox: '2px',
         status: '6px',
     },
@@ -76,6 +79,10 @@ export const GlobalStyle = createGlobalStyle`
         font-family:"Spartan", sans-serif;
         body {
             #root {
+                a{
+                    text-decoration: none;
+                    color: white;
+                }
                 .hover{
                     &:hover {
                         cursor: url(${Cursor}), auto;

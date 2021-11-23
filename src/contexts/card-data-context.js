@@ -5,38 +5,36 @@ import CardData from '../data/data.json';
 const CardContextProvider = (props) => {
     const dataFile = [CardData];
 
-    const [show, setShow] = useState('cardList');
+    // Data States
     const [data, setData] = useState([...dataFile][0]);
     const [oneCard, setOneCard] = useState();
-    const [filteredData, setFilteredData] = useState([])
-    
-    const [draft, setDraft] = useState(false)
-    const [pending, setPending] = useState(false)
-    const [paid, setPaid] = useState(false)
+    const [filteredData, setFilteredData] = useState([]);
+
+    // CheckBox states
+    const [draft, setDraft] = useState(false);
+    const [pending, setPending] = useState(false);
+    const [paid, setPaid] = useState(false);
 
     const filterHelper = [];
-    function filterFunc(checked, name) {
-      
-         if(!checked) {
-            Object.values(data).forEach(item => {
-                if(item.status === name) {
-                    filterHelper.push(item)
-                }
-            }); 
-            setFilteredData([...filterHelper,...filteredData])
-            
-        }
-        
-         if(checked) {
-            let helper = filteredData.filter(item => item.status !== name)
-            setFilteredData([...filterHelper,...helper])
 
+    function filterFunc(checked, name) {
+        if (!checked) {
+            Object.values(data).forEach((item) => {
+                if (item.status === name) {
+                    filterHelper.push(item);
+                }
+            });
+            setFilteredData([...filterHelper, ...filteredData]);
+        }
+
+        if (checked) {
+            let helper = filteredData.filter((item) => item.status !== name);
+            setFilteredData([...filterHelper, ...helper]);
         }
     }
- 
+
     function oneCardDataHandler(string) {
         setOneCard(data.filter((item) => item.id === string));
-        setShow('cardInfo');
     }
 
     function formatedDate(date) {
@@ -71,12 +69,15 @@ const CardContextProvider = (props) => {
                 data,
                 oneCard,
                 oneCardDataHandler,
-                show,
-                setShow,
                 setData,
                 filterFunc,
                 setFilteredData,
-                paid,draft,pending,setPaid,setDraft,setPending
+                paid,
+                draft,
+                pending,
+                setPaid,
+                setDraft,
+                setPending,
             }}
         >
             {props.children}

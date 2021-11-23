@@ -1,9 +1,10 @@
 import { useContext } from 'react';
 import Context from '../../contexts/context';
 
+import CardStatus from './CardStatus';
+
 import { CardItem, Hashtag } from '../styled/CardListStyle.styled';
 
-import CardStatus from './CardStatus';
 function Card({ id, clientName, status, total, paymentDue }) {
     const totalAmmount = total.toFixed(2).toLocaleString();
 

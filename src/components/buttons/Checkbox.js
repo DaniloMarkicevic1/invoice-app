@@ -43,10 +43,7 @@ const StyledCheckbox = styled.div`
     }
 `;
 
-function Checkbox({ name,checked ,className, ...props }) {
-
-
- 
+function Checkbox({ name, checked, className, ...props }) {
     return (
         <CheckboxContainer className={className}>
             <HiddenCheckbox checked={checked} {...props} />

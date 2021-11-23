@@ -1,18 +1,18 @@
-import Checkbox from '../buttons/Checkbox';
-import { Option, Span, Label } from '../styled/AddSection.styled';
-
 import { useContext } from 'react';
 import Context from '../../contexts/context';
 
-function FilterItem({ name,checked,set }) {
-    
+import Checkbox from '../buttons/Checkbox';
+
+import { Option, Span, Label } from '../styled/AddSection.styled';
+
+function FilterItem({ name, checked, set }) {
     const { filterFunc } = useContext(Context);
 
-
     function handleCheckboxChange(e) {
-        set(!checked)
-        filterFunc(checked ,name)
+        set(!checked);
+        filterFunc(checked, name);
     }
+
     return (
         <Option>
             <Label className="hover">
