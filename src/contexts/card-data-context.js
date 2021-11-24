@@ -1,4 +1,5 @@
 import { useState } from 'react';
+
 import Context from './context';
 import CardData from '../data/data.json';
 
@@ -7,7 +8,7 @@ const CardContextProvider = (props) => {
 
     // Data States
     const [data, setData] = useState([...dataFile][0]);
-    const [oneCard, setOneCard] = useState();
+    const [oneCard, setOneCard] = useState(data);
     const [filteredData, setFilteredData] = useState([]);
 
     // CheckBox states

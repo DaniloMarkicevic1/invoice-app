@@ -1,9 +1,17 @@
 import { useContext } from 'react';
+
 import Context from '../../contexts/context';
+import { IconDelete } from '../../Images';
+import Button from '../buttons/Button';
 
 import Input from '../buttons/Input';
 
-import { ItemTitle, ItemWrapper, SectionWrapper } from '../styled/Form.styled';
+import {
+    ItemWrap,
+    ItemTitle,
+    ItemListWrapper,
+    SectionWrapper,
+} from '../styled/Form.styled';
 
 function ItemList() {
     const { oneCard } = useContext(Context);
@@ -30,31 +38,47 @@ function ItemList() {
         }
     }
 
+    function decimals(itemName, value) {
+        if (itemName === 'price' || itemName === 'total') {
+            return value.toFixed(2);
+        } else {
+            return value;
+        }
+    }
+    // Items in Item List
+    function mapItems(item) {
+        return (
+            <ItemWrap label={item.name}>
+                {Object.entries(item).map(([itemName, value]) => {
+                    setLabel(itemName);
+                    return (
+                        <>
+                            <Input
+                                key={itemName}
+                                type="text"
+                                label={itemName}
+                                placeholder={labelText}
+                                labelText={labelText}
+                                value={decimals(itemName, value)}
+                            />
+                        </>
+                    );
+                })}
+                <IconDelete label="delete" className="hover" />
+            </ItemWrap>
+        );
+    }
+
     return (
-        <>
-            <SectionWrapper>
-                <ItemTitle>Item List</ItemTitle>
-
-                <ItemWrapper>
-                    {items.map((item) => {
-                        return Object.entries(item).map(([itemName, value]) => {
-                            setLabel(itemName);
-
-                            return (
-                                <Input
-                                    key={itemName}
-                                    type="text"
-                                    label={itemName}
-                                    placeholder={labelText}
-                                    labelText={labelText}
-                                    value={value}
-                                />
-                            );
-                        });
-                    })}
-                </ItemWrapper>
-            </SectionWrapper>
-        </>
+        <SectionWrapper>
+            <ItemTitle>Item List</ItemTitle>
+            <ItemListWrapper>
+                {items.map((item) => {
+                    return mapItems(item);
+                })}
+            </ItemListWrapper>
+            <Button text="+ Add New Item" btn="newItem" />
+        </SectionWrapper>
     );
 }
 

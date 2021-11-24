@@ -2,7 +2,6 @@ import { Route, Routes } from 'react-router-dom';
 
 import CardInfo from './CardInfo';
 import CardList from './CardList';
-import AddSection from './AddSection';
 import Form from '../form/Form';
 
 function CardSection() {
@@ -10,8 +9,6 @@ function CardSection() {
         <>
             <Routes>
                 <Route path="/" element={<CardList />} />
-                <Route path="/" element={<AddSection />} />
-
                 <Route path="/cardInfo" element={<CardInfo />} />
 
                 <Route path="/add-new" element={<Form type="add-new" />} />

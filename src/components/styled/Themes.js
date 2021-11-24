@@ -10,6 +10,7 @@ export const DarkTheme = {
         btnPrimaryHover: '#9277FF',
         btnDelete: '#EC5757',
         grayishWhite: '#DFE3FA',
+        lightGray: '#373b53',
         white: '#ffffff',
         hashtag: '#888EB0',
         hashtagSecondary: '#7e88c3',

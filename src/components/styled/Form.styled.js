@@ -16,19 +16,29 @@ export const FormWrapper = styled.form`
     padding: 0 24px 24px;
     text-align: left;
 `;
+
 export const ItemTitle = styled.p`
     color: ${({ theme }) => theme.colors.itemTitle};
     font-size: ${({ theme }) => theme.font.size.mobileL};
     font-weight: ${({ theme }) => theme.font.weight.bold};
-    padding: 66px 0 0 0;
+    padding: 66px 0 24px 0;
 `;
 
-export const ItemWrapper = styled.div`
+export const ItemListWrapper = styled.div`
+    display: grid;
+`;
+
+export const ItemWrap = styled.div`
     display: grid;
     grid-template-areas:
-        'name name name name'
-        'qty price total .';
-    padding: 0 0 48px 0;
+        'name name name name name name'
+        'qty price price total total delete';
+    column-gap: 16px;
+    padding: 0 0 24px 0;
+    svg {
+        align-self: end;
+        margin: 0 0 16px 0;
+    }
 `;
 
 export const SectionWrapper = styled.div``;
@@ -55,15 +65,17 @@ export const InputWrap = styled.div`
     flex-direction: column;
     padding: ${({ type }) =>
         (type === 'date' && '40px 0 0 0') || (type === 'text' && '24px 0 0 0')};
-    /* Address Grid Area */
     grid-area: ${({ label }) =>
+        // Address Grid Area
         (label === 'street' && 'street') ||
         (label === 'city' && 'city') ||
         (label === 'country' && 'country') ||
         (label === 'postCode' && 'postCode') ||
+        // Item List Grid Area
         (label === 'name' && 'name') ||
         (label === 'quantity' && 'qty') ||
         (label === 'price' && 'price') ||
+        (label === 'delete' && 'delete') ||
         (label === 'total' && 'total')};
 `;
 
@@ -103,3 +115,13 @@ export const Label = styled.label`
 `;
 
 export const ItemList = styled.section``;
+
+export const FormButtons = styled.div`
+    display: grid;
+    padding: 21px 24px 22px 24px;
+    grid-template-areas: ${({ type }) =>
+        (type === 'edit' && '". . two third"') ||
+        (type === 'add-new' && '"two two four four third third"')};
+    column-gap: 8px;
+    background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+`;

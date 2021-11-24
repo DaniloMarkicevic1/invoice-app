@@ -4,7 +4,7 @@ import { ArrowLeft } from '../../Images';
 
 import { GoBackWrap, GoBackButton } from '../styled/CardInfo.styled';
 
-function GoBack() {
+function GoBack({ to }) {
     return (
         <Link to="/">
             <GoBackWrap className="hover">
