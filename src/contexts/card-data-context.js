@@ -18,6 +18,10 @@ const CardContextProvider = (props) => {
 
     const filterHelper = [];
 
+    function deleteItem() {
+        setData(data.filter((dataItem) => dataItem.id !== oneCard[0].id));
+    }
+
     function filterFunc(checked, name) {
         if (!checked) {
             Object.values(data).forEach((item) => {
@@ -79,6 +83,7 @@ const CardContextProvider = (props) => {
                 setPaid,
                 setDraft,
                 setPending,
+                deleteItem,
             }}
         >
             {props.children}

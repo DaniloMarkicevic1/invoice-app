@@ -18,7 +18,7 @@ import {
 } from '../styled/CardInfo.styled';
 
 function CardInfo() {
-    const { oneCard, formatedDate } = useContext(Context);
+    const { oneCard, formatedDate, deleteItem } = useContext(Context);
 
     const {
         id,
@@ -81,6 +81,7 @@ function CardInfo() {
             );
         });
     }
+
     return (
         <>
             <Wrapper>
@@ -173,7 +174,11 @@ function CardInfo() {
                 <Link to="/edit">
                     <Button text="Edit" btn="two"></Button>
                 </Link>
-                <Button text="Delete" btn="three"></Button>
+                <Button
+                    text="Delete"
+                    btn="three"
+                    onClick={() => deleteItem()}
+                ></Button>
                 <Button text="Mark as Paid" btn="one"></Button>
             </ItemWrap>
         </>
