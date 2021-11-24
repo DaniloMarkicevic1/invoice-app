@@ -1,10 +1,10 @@
 import { useContext } from 'react';
 
 import Context from '../../contexts/context';
-import { IconDelete } from '../../Images';
 import Button from '../buttons/Button';
-
 import Input from '../buttons/Input';
+
+import { IconDelete } from '../../Images';
 
 import {
     ItemWrap,
