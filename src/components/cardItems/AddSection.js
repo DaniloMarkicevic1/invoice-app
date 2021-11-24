@@ -1,6 +1,7 @@
 import { useContext, useState } from 'react';
-import Context from '../../contexts/context';
 import { Link } from 'react-router-dom';
+
+import Context from '../../contexts/context';
 
 import Button from '../buttons/Button';
 import FilterList from './FilterList';
@@ -19,7 +20,7 @@ import {
 } from '../styled/AddSection.styled';
 
 function AddSection() {
-    const [toggleFilter, setToggleFilter] = useState('hide');
+    const [toggleFilter, setToggleFilter] = useState(false);
 
     const { filteredData, data } = useContext(Context);
 
@@ -33,9 +34,8 @@ function AddSection() {
     }
 
     function toggleFilterHandler() {
-        toggleFilter === 'hide'
-            ? setToggleFilter('show')
-            : setToggleFilter('hide');
+        toggleFilter ? setToggleFilter(false) : setToggleFilter(true);
+        console.log(toggleFilter);
     }
 
     return (

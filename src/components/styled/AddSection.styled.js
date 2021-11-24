@@ -35,12 +35,11 @@ export const Filter = styled.div`
     margin: 0 18px 0 0;
 
     ul {
-        pointer-events: ${({ toggle }) => toggle === 'show' && 'auto'};
-        opacity: ${({ toggle }) => toggle === 'show' && 1};
+        pointer-events: ${({ toggle }) => toggle && 'auto'};
+        opacity: ${({ toggle }) => toggle && 1};
     }
     svg {
-        transform: ${({ toggle }) =>
-            toggle === 'show' ? 'rotate(180deg)' : 0};
+        transform: ${({ toggle }) => (toggle ? 'rotate(180deg)' : 0)};
     }
 
     svg {

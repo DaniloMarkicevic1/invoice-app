@@ -17,18 +17,17 @@ function Form({ type }) {
     const { oneCard } = useContext(Context);
     const navigate = useNavigate();
 
+    const { id } = oneCard[0];
     function title(type) {
         if (type === 'add-new') {
             return <FormTitle>New Invoice</FormTitle>;
-        } else {
-            const { id } = oneCard[0];
-            return (
-                <FormTitle>
-                    Edit <Hashtag>#</Hashtag>
-                    {id}
-                </FormTitle>
-            );
         }
+        return (
+            <FormTitle>
+                Edit <Hashtag>#</Hashtag>
+                {id}
+            </FormTitle>
+        );
     }
 
     function formButtons(type) {
