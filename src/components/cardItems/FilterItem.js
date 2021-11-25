@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import Context from '../../contexts/context';
 
+import Context from '../../contexts/context';
 import Checkbox from '../buttons/Checkbox';
 
 import { Option, Span, Label } from '../styled/AddSection.styled';

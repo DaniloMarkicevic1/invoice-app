@@ -15,7 +15,7 @@ import { FormButtons, FormTitle, FormWrapper } from '../styled/Form.styled';
 import { Wrapper } from '../styled/Form.styled';
 
 function Form({ type }) {
-    const { oneCard } = useContext(Context);
+    const { oneCard, saveChanges, cancelButton } = useContext(Context);
     const navigate = useNavigate();
 
     const { id } = oneCard[0];
@@ -52,12 +52,20 @@ function Form({ type }) {
             return (
                 <FormButtons type={type}>
                     <Button
-                        onClick={() => navigate('/cardInfo')}
+                        onClick={() => {
+                            console.log(id);
+                            cancelButton(id);
+                            navigate('/cardInfo');
+                        }}
                         text="Cancel"
                         btn="two"
                     />
 
-                    <Button text="Save Changes" btn="one" />
+                    <Button
+                        text="Save Changes"
+                        btn="one"
+                        onClick={() => saveChanges()}
+                    />
                 </FormButtons>
             );
         }
@@ -71,7 +79,12 @@ function Form({ type }) {
                 {title(type)}
             </Wrapper>
 
-            <FormWrapper onSubmit={(e) => e.preventDefault()}>
+            <FormWrapper
+                onSubmit={(e) => {
+                    e.preventDefault();
+                    saveChanges();
+                }}
+            >
                 <BillFrom />
 
                 <BillTo />
@@ -79,9 +92,8 @@ function Form({ type }) {
                 <InvoiceDate />
 
                 <ItemList />
+                {formButtons(type)}
             </FormWrapper>
-
-            {formButtons(type)}
         </>
     );
 }

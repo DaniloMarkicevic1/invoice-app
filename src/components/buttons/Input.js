@@ -1,21 +1,28 @@
-import { useState } from 'react';
+import { useContext } from 'react';
+
+import Context from '../../contexts/context';
 
 import { InputField, InputWrap, Label } from '../styled/Form.styled';
 
 function Input({ type, label, placeholder, labelText, value }) {
-    const [inputValue, setInputValue] = useState(value);
-
+    const { edit, newValue, setNewValue } = useContext(Context);
+    setNewValue(value);
+    console.log(value);
     return (
         <>
             <InputWrap type={type} label={label}>
                 <Label htmlFor={label}>{labelText}</Label>
                 <InputField
-                    onChange={(e) => setInputValue(e.target.value)}
+                    onInput={(e) => {
+                        setNewValue(e.target.value);
+                        edit(e.target.value, label);
+                    }}
                     placeholder={placeholder}
                     type={type}
                     name={label}
                     id={label}
-                    value={inputValue}
+                    label={label}
+                    value={newValue}
                 />
             </InputWrap>
         </>

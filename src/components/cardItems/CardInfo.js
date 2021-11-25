@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import Context from '../../contexts/context';
 
@@ -16,9 +17,11 @@ import {
     Item,
     Hashtag,
 } from '../styled/CardInfo.styled';
-
 function CardInfo() {
-    const { oneCard, formatedDate, deleteItem } = useContext(Context);
+    const { oneCard, formatedDate, deleteItem, markAsPaid } =
+        useContext(Context);
+
+    const navigate = useNavigate();
 
     const {
         id,
@@ -70,12 +73,13 @@ function CardInfo() {
 
                     <Item gridArea="quantity" bold={true}>
                         <Hashtag>
-                            {item.quantity} x £ {item.price}
+                            {item.quantity} x £{' '}
+                            {item.price.toFixed(2).toLocaleString()}
                         </Hashtag>
                     </Item>
 
                     <Item gridArea="jobPrice" bold={true}>
-                        £ {item.total}
+                        £ {item.total.toFixed(2).toLocaleString()}
                     </Item>
                 </ItemWrap>
             );
@@ -177,9 +181,16 @@ function CardInfo() {
                 <Button
                     text="Delete"
                     btn="three"
-                    onClick={() => deleteItem()}
+                    onClick={() => {
+                        deleteItem();
+                        navigate('/');
+                    }}
                 ></Button>
-                <Button text="Mark as Paid" btn="one"></Button>
+                <Button
+                    text="Mark as Paid"
+                    btn="one"
+                    onClick={() => markAsPaid()}
+                ></Button>
             </ItemWrap>
         </>
     );

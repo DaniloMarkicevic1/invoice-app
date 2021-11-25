@@ -10,15 +10,19 @@ function Address({ address }) {
             case 'street':
                 labelText = 'Street Address';
                 break;
+
             case 'country':
                 labelText = 'Country';
                 break;
+
             case 'postCode':
                 labelText = 'Post Code';
                 break;
+
             case 'city':
                 labelText = 'City';
                 break;
+
             default:
                 break;
         }
@@ -29,6 +33,7 @@ function Address({ address }) {
             <AddressWrapper>
                 {Object.entries(address).map(([label, address]) => {
                     setLabel(label);
+
                     return (
                         <Input
                             key={label}

@@ -1,13 +1,12 @@
 import { useState } from 'react';
 
+import CardContextProvider from './contexts/card-data-context';
+
 import Header from './components/header/Header';
 import CardSection from './components/cardItems/CardSection';
 
-import CardContextProvider from './contexts/card-data-context';
-
-import { Container } from './components/styled/Container.styled';
-
 import { ThemeProvider } from 'styled-components';
+import { Container } from './components/styled/Container.styled';
 import { DarkTheme, GlobalStyle } from './components/styled/Themes';
 
 function App() {

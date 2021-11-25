@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import Context from '../../contexts/context';
 
+import Context from '../../contexts/context';
 import Address from './AddressForm';
 
 import { BillTitle } from '../styled/Form.styled';

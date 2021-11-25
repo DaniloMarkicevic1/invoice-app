@@ -1,6 +1,6 @@
 import { useContext } from 'react';
-import Context from '../../contexts/context';
 
+import Context from '../../contexts/context';
 import FilterItem from './FilterItem';
 
 import { FilterOptions } from '../styled/AddSection.styled';

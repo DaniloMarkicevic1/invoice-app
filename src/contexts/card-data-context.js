@@ -8,9 +8,40 @@ const CardContextProvider = (props) => {
 
     // Data States
     const [data, setData] = useState([...dataFile][0]);
-    const [oneCard, setOneCard] = useState(data);
+    const [oneCard, setOneCard] = useState([...data]);
     const [filteredData, setFilteredData] = useState([]);
 
+    const [editedInfo, setEditedInfo] = useState({
+        id: '',
+        createdAt: '',
+        paymentDue: '',
+        description: '',
+        paymentTerms: 0,
+        clientName: '',
+        clientEmail: '',
+        status: '',
+        senderAddress: {
+            street: '',
+            city: '',
+            postCode: '',
+            country: '',
+        },
+        clientAddress: {
+            street: '',
+            city: '',
+            postCode: '',
+            country: '',
+        },
+        items: [
+            {
+                name: '',
+                quantity: 0,
+                price: 0,
+                total: 0,
+            },
+        ],
+        total: 0,
+    });
     // CheckBox states
     const [draft, setDraft] = useState(false);
     const [pending, setPending] = useState(false);
@@ -18,8 +49,28 @@ const CardContextProvider = (props) => {
 
     const filterHelper = [];
 
+    function oneCardDataHandler(string) {
+        setOneCard(data.filter((item) => item.id === string));
+        setEditedInfo(data.filter((item) => item.id === string));
+    }
+    function saveChanges() {
+        setOneCard([...editedInfo]);
+        console.log('saveChanges');
+    }
+
+    function cancelButton(string) {
+        setOneCard(data.filter((item) => item.id === string));
+    }
+    function edit(newValue, label) {}
+
     function deleteItem() {
         setData(data.filter((dataItem) => dataItem.id !== oneCard[0].id));
+    }
+
+    function markAsPaid() {
+        const paid = [...oneCard];
+        paid[0].status = 'paid';
+        setOneCard([...paid]);
     }
 
     function filterFunc(checked, name) {
@@ -36,10 +87,6 @@ const CardContextProvider = (props) => {
             let helper = filteredData.filter((item) => item.status !== name);
             setFilteredData([...filterHelper, ...helper]);
         }
-    }
-
-    function oneCardDataHandler(string) {
-        setOneCard(data.filter((item) => item.id === string));
     }
 
     function formatedDate(date) {
@@ -83,7 +130,12 @@ const CardContextProvider = (props) => {
                 setPaid,
                 setDraft,
                 setPending,
+                // Editing
                 deleteItem,
+                markAsPaid,
+                edit,
+                saveChanges,
+                cancelButton,
             }}
         >
             {props.children}
