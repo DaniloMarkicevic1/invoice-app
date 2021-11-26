@@ -35,7 +35,6 @@ function AddSection() {
 
     function toggleFilterHandler() {
         toggleFilter ? setToggleFilter(false) : setToggleFilter(true);
-        console.log(toggleFilter);
     }
 
     return (

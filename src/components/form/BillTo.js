@@ -7,10 +7,10 @@ import Input from '../buttons/Input';
 import { BillTitle, SectionWrapper } from '../styled/Form.styled';
 
 function BillTo() {
-    const { oneCard } = useContext(Context);
+    const { editObject } = useContext(Context);
 
-    const { clientAddress, clientName, clientEmail } = oneCard[0];
-    console.log(clientName);
+    const { clientAddress, clientName, clientEmail } = editObject[0];
+    console.log('editObject u BillTo: ', editObject);
     return (
         <>
             <SectionWrapper>
@@ -24,6 +24,7 @@ function BillTo() {
                     labelText="Client Name"
                     value={clientName}
                 />
+
                 <Input
                     type="text"
                     name="clientEmail"
@@ -33,7 +34,7 @@ function BillTo() {
                     labelText="Client Email"
                 />
 
-                <Address address={clientAddress} />
+                <Address address={clientAddress} sender="clientAddress" />
             </SectionWrapper>
         </>
     );

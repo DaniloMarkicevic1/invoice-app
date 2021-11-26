@@ -176,7 +176,14 @@ function CardInfo() {
             {/* Buttons */}
             <ItemWrap btns="buttonArea">
                 <Link to="/edit">
-                    <Button text="Edit" btn="two"></Button>
+                    <Button
+                        text="Edit"
+                        btn="two"
+                        onClick={() => {
+                            navigate('/edit');
+                            // editedObject = [...oneCard[0]];
+                        }}
+                    ></Button>
                 </Link>
                 <Button
                     text="Delete"

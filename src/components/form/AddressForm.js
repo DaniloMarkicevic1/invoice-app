@@ -2,7 +2,7 @@ import Input from '../buttons/Input';
 
 import { AddressWrapper } from '../styled/Form.styled';
 
-function Address({ address }) {
+function Address({ address, sender }) {
     let labelText = '';
 
     function setLabel(text) {
@@ -42,6 +42,7 @@ function Address({ address }) {
                             placeholder={labelText}
                             labelText={labelText}
                             value={address}
+                            from={sender}
                         />
                     );
                 })}

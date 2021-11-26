@@ -1,13 +1,17 @@
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 
 import Context from '../../contexts/context';
 
 import { InputField, InputWrap, Label } from '../styled/Form.styled';
 
-function Input({ type, label, placeholder, labelText, value }) {
-    const { edit, newValue, setNewValue } = useContext(Context);
-    setNewValue(value);
-    console.log(value);
+function Input({ type, label, placeholder, labelText, value, from }) {
+    const { edit } = useContext(Context);
+    const [newValue, setNewValue] = useState(value);
+
+    function setEdit(typedInValue) {
+        edit(typedInValue, label, from);
+    }
+
     return (
         <>
             <InputWrap type={type} label={label}>
@@ -15,7 +19,7 @@ function Input({ type, label, placeholder, labelText, value }) {
                 <InputField
                     onInput={(e) => {
                         setNewValue(e.target.value);
-                        edit(e.target.value, label);
+                        setEdit(e.target.value);
                     }}
                     placeholder={placeholder}
                     type={type}

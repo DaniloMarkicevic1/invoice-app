@@ -13,7 +13,7 @@ function BillFrom() {
     return (
         <>
             <BillTitle billTitle="from">Bill From</BillTitle>
-            <Address address={senderAddress} />
+            <Address address={senderAddress} sender="senderAddress" />
         </>
     );
 }

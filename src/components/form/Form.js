@@ -53,7 +53,6 @@ function Form({ type }) {
                 <FormButtons type={type}>
                     <Button
                         onClick={() => {
-                            console.log(id);
                             cancelButton(id);
                             navigate('/cardInfo');
                         }}
@@ -64,7 +63,10 @@ function Form({ type }) {
                     <Button
                         text="Save Changes"
                         btn="one"
-                        onClick={() => saveChanges()}
+                        onClick={() => {
+                            saveChanges();
+                            navigate('/cardInfo');
+                        }}
                     />
                 </FormButtons>
             );
