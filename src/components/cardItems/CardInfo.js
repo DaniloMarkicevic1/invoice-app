@@ -181,6 +181,7 @@ function CardInfo() {
                         btn="two"
                         onClick={() => {
                             navigate('/edit');
+
                             // editedObject = [...oneCard[0]];
                         }}
                     ></Button>

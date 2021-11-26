@@ -10,7 +10,7 @@ function BillTo() {
     const { editObject } = useContext(Context);
 
     const { clientAddress, clientName, clientEmail } = editObject[0];
-    console.log('editObject u BillTo: ', editObject);
+
     return (
         <>
             <SectionWrapper>

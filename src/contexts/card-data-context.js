@@ -17,10 +17,9 @@ const CardContextProvider = (props) => {
     const [paid, setPaid] = useState(false);
     const [editObject, setEditObject] = useState();
     const filterHelper = [];
-
     function oneCardDataHandler(string) {
         setOneCard(data.filter((item) => item.id === string));
-        setEditObject(oneCard);
+        setEditObject(data.filter((item) => item.id === string));
     }
 
     function saveChanges() {
@@ -32,62 +31,59 @@ const CardContextProvider = (props) => {
     }
 
     function edit(newValue, label, from) {
-        switch (label) {
-            case 'clientName':
-                editObject[0].clientName = newValue;
-                break;
-            case 'description':
-                editObject[0].description = newValue;
-                break;
-            case 'clientEmail':
-                editObject[0].clientEmail = newValue;
-                break;
-            default:
-                break;
-        }
-        switch (from) {
-            case 'clientAddress':
-                switch (label) {
-                    case 'street':
-                        editObject[0].clientAddress.street = newValue;
-                        break;
-                    case 'country':
-                        editObject[0].clientAddress.country = newValue;
-                        break;
-                    case 'city':
-                        editObject[0].clientAddress.city = newValue;
-                        break;
-                    case 'postCode':
-                        editObject[0].clientAddress.postCode = newValue;
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            case 'senderAddress':
-                switch (label) {
-                    case 'street':
-                        editObject.senderAddress.street = newValue;
-                        break;
-                    case 'country':
-                        editObject.senderAddress.country = newValue;
-                        break;
-                    case 'city':
-                        editObject.senderAddress.city = newValue;
-                        break;
-                    case 'postCode':
-                        editObject.senderAddress.postCode = newValue;
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            default:
-                break;
-        }
-        console.log('Label:', label);
-        console.log('Edited Object:', editObject[0]);
-        console.log('One Card:', oneCard[0]);
+        // switch (label) {
+        //     case 'clientName':
+        //         editObject[0].clientName = newValue;
+        //         break;
+        //     case 'description':
+        //         editObject[0].description = newValue;
+        //         break;
+        //     case 'clientEmail':
+        //         editObject[0].clientEmail = newValue;
+        //         break;
+        //     default:
+        //         break;
+        // }
+        // switch (from) {
+        //     case 'clientAddress':
+        //         switch (label) {
+        //             case 'street':
+        //                 editObject[0].clientAddress.street = newValue;
+        //                 break;
+        //             case 'country':
+        //                 editObject[0].clientAddress.country = newValue;
+        //                 break;
+        //             case 'city':
+        //                 editObject[0].clientAddress.city = newValue;
+        //                 break;
+        //             case 'postCode':
+        //                 editObject[0].clientAddress.postCode = newValue;
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //         break;
+        //     case 'senderAddress':
+        //         switch (label) {
+        //             case 'street':
+        //                 editObject.senderAddress.street = newValue;
+        //                 break;
+        //             case 'country':
+        //                 editObject.senderAddress.country = newValue;
+        //                 break;
+        //             case 'city':
+        //                 editObject.senderAddress.city = newValue;
+        //                 break;
+        //             case 'postCode':
+        //                 editObject.senderAddress.postCode = newValue;
+        //                 break;
+        //             default:
+        //                 break;
+        //         }
+        //         break;
+        //     default:
+        //         break;
+        // }
     }
 
     function deleteItem() {
