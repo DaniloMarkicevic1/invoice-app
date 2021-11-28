@@ -17,6 +17,7 @@ import {
     Item,
     Hashtag,
 } from '../styled/CardInfo.styled';
+
 function CardInfo() {
     const { oneCard, formatedDate, deleteItem, markAsPaid } =
         useContext(Context);

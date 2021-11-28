@@ -11,8 +11,12 @@ import ItemList from './ItemList';
 import Button from '../buttons/Button';
 
 import { Hashtag } from '../styled/CardListStyle.styled';
-import { FormButtons, FormTitle, FormWrapper } from '../styled/Form.styled';
-import { Wrapper } from '../styled/Form.styled';
+import {
+    FormButtons,
+    FormTitle,
+    FormWrapper,
+    Wrapper,
+} from '../styled/Form.styled';
 
 function Form({ type }) {
     const { oneCard, saveChanges, cancelButton } = useContext(Context);

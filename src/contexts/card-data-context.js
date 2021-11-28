@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import Context from './context';
+
 import CardData from '../data/data.json';
 
 const CardContextProvider = (props) => {
