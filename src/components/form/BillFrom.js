@@ -6,9 +6,9 @@ import Address from './AddressForm';
 import { BillTitle } from '../styled/Form.styled';
 
 function BillFrom() {
-    const { editObject } = useContext(Context);
+    const { oneCard } = useContext(Context);
 
-    const { senderAddress } = editObject[0];
+    const { senderAddress } = oneCard[0];
 
     return (
         <>

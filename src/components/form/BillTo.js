@@ -7,9 +7,9 @@ import Input from '../buttons/Input';
 import { BillTitle, SectionWrapper } from '../styled/Form.styled';
 
 function BillTo() {
-    const { editObject } = useContext(Context);
+    const { oneCard } = useContext(Context);
 
-    const { clientAddress, clientName, clientEmail } = editObject[0];
+    const { clientAddress, clientName, clientEmail } = oneCard[0];
 
     return (
         <>

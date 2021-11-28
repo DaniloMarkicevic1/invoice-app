@@ -94,6 +94,7 @@ function Form({ type }) {
                 <InvoiceDate />
 
                 <ItemList />
+
                 {formButtons(type)}
             </FormWrapper>
         </>

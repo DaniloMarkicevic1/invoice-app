@@ -15,11 +15,44 @@ const CardContextProvider = (props) => {
     const [draft, setDraft] = useState(false);
     const [pending, setPending] = useState(false);
     const [paid, setPaid] = useState(false);
-    const [editObject, setEditObject] = useState();
     const filterHelper = [];
+
+    const editObject = [
+        {
+            id: oneCard[0].id,
+            createdAt: oneCard[0].createdAt,
+            paymentDue: oneCard[0].paymentDue,
+            description: oneCard[0].description,
+            paymentTerms: oneCard[0].paymentTerms,
+            clientName: oneCard[0].clientName,
+            clientEmail: oneCard[0].clientEmail,
+            status: oneCard[0].status,
+            senderAddress: {
+                street: oneCard[0].senderAddress.street,
+                city: oneCard[0].senderAddress.city,
+                postCode: oneCard[0].senderAddress.postCode,
+                country: oneCard[0].senderAddress.country,
+            },
+            clientAddress: {
+                street: oneCard[0].clientAddress.street,
+                city: oneCard[0].clientAddress.city,
+                postCode: oneCard[0].clientAddress.postCode,
+                country: oneCard[0].clientAddress.country,
+            },
+            items: [
+                {
+                    name: oneCard[0].items.name,
+                    quantity: oneCard[0].items.quantity,
+                    price: oneCard[0].items.price,
+                    total: oneCard[0].items.total,
+                },
+            ],
+            total: oneCard[0].total,
+        },
+    ];
+
     function oneCardDataHandler(string) {
         setOneCard(data.filter((item) => item.id === string));
-        setEditObject(data.filter((item) => item.id === string));
     }
 
     function saveChanges() {
@@ -31,59 +64,61 @@ const CardContextProvider = (props) => {
     }
 
     function edit(newValue, label, from) {
-        // switch (label) {
-        //     case 'clientName':
-        //         editObject[0].clientName = newValue;
-        //         break;
-        //     case 'description':
-        //         editObject[0].description = newValue;
-        //         break;
-        //     case 'clientEmail':
-        //         editObject[0].clientEmail = newValue;
-        //         break;
-        //     default:
-        //         break;
-        // }
-        // switch (from) {
-        //     case 'clientAddress':
-        //         switch (label) {
-        //             case 'street':
-        //                 editObject[0].clientAddress.street = newValue;
-        //                 break;
-        //             case 'country':
-        //                 editObject[0].clientAddress.country = newValue;
-        //                 break;
-        //             case 'city':
-        //                 editObject[0].clientAddress.city = newValue;
-        //                 break;
-        //             case 'postCode':
-        //                 editObject[0].clientAddress.postCode = newValue;
-        //                 break;
-        //             default:
-        //                 break;
-        //         }
-        //         break;
-        //     case 'senderAddress':
-        //         switch (label) {
-        //             case 'street':
-        //                 editObject.senderAddress.street = newValue;
-        //                 break;
-        //             case 'country':
-        //                 editObject.senderAddress.country = newValue;
-        //                 break;
-        //             case 'city':
-        //                 editObject.senderAddress.city = newValue;
-        //                 break;
-        //             case 'postCode':
-        //                 editObject.senderAddress.postCode = newValue;
-        //                 break;
-        //             default:
-        //                 break;
-        //         }
-        //         break;
-        //     default:
-        //         break;
-        // }
+        switch (label) {
+            case 'clientName':
+                editObject[0].clientName = newValue;
+                break;
+            case 'description':
+                editObject[0].description = newValue;
+                break;
+            case 'clientEmail':
+                editObject[0].clientEmail = newValue;
+                break;
+
+            default:
+                break;
+        }
+
+        switch (from) {
+            case 'clientAddress':
+                switch (label) {
+                    case 'street':
+                        editObject[0].clientAddress.street = newValue;
+                        break;
+                    case 'country':
+                        editObject[0].clientAddress.country = newValue;
+                        break;
+                    case 'city':
+                        editObject[0].clientAddress.city = newValue;
+                        break;
+                    case 'postCode':
+                        editObject[0].clientAddress.postCode = newValue;
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            case 'senderAddress':
+                switch (label) {
+                    case 'street':
+                        editObject[0].senderAddress.street = newValue;
+                        break;
+                    case 'country':
+                        editObject[0].senderAddress.country = newValue;
+                        break;
+                    case 'city':
+                        editObject[0].senderAddress.city = newValue;
+                        break;
+                    case 'postCode':
+                        editObject[0].senderAddress.postCode = newValue;
+                        break;
+                    default:
+                        break;
+                }
+                break;
+            default:
+                break;
+        }
     }
 
     function deleteItem() {
@@ -169,35 +204,3 @@ const CardContextProvider = (props) => {
 };
 
 export default CardContextProvider;
-
-// const editObject = {
-//     id: oneCard[0].id,
-//     createdAt: oneCard.createdAt,
-//     paymentDue: '',
-//     description: '',
-//     paymentTerms: 0,
-//     clientName: '',
-//     clientEmail: '',
-//     status: '',
-//     senderAddress: {
-//         street: '',
-//         city: '',
-//         postCode: '',
-//         country: '',
-//     },
-//     clientAddress: {
-//         street: '',
-//         city: '',
-//         postCode: '',
-//         country: '',
-//     },
-//     items: [
-//         {
-//             name: '',
-//             quantity: 0,
-//             price: 0,
-//             total: 0,
-//         },
-//     ],
-//     total: 0,
-// };
